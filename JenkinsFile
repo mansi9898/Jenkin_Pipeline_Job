@@ -17,7 +17,18 @@ pipeline {
                 bat 'mvn test '
             }
         }
-        
+        stage('Deploy') {
+            steps {
+                 //Deploy the application to server
+                echo 'Deploying the application...'
+            }
+        }
+        stage('Clean Up') {
+            steps {
+                // Clean up any temporary files or resources
+                bat 'mvn clean'
+            }
+        }
     }
     post {
         success {
