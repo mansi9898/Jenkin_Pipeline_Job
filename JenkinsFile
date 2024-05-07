@@ -4,8 +4,9 @@ pipeline {
         maven "MAVEN_HOME"
     }
     environment {
-        IE_DRIVER_PATH = "C:\\Users\\mansigupta05\\Downloads\\IEDriverServer_x64_4.14.0\\IEDriverServer.exe"
-    }
+    IE_DRIVER_PATH = "C:\\Users\\mansigupta05\\Downloads\\IEDriverServer_x64_4.14.0 (1)\\IEDriverServer.exe"
+     }
+
     stages {
         stage('Setup WebDriver') {
             steps {
@@ -21,7 +22,7 @@ pipeline {
                 
                 // Set up WebDriver executables directory in PATH
                 script {
-                    env.PATH += ";C:\\Users\\mansigupta05\\Downloads\\IEDriverServer_x64_4.14.0" // Add directory containing WebDriver executables to PATH
+                    env.PATH += ";C:\\Users\\mansigupta05\\Downloads\\IEDriverServer_x64_4.14.0 (1)" // Add directory containing WebDriver executables to PATH
                 }
             }
         }
