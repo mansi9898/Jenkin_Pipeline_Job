@@ -3,27 +3,11 @@ pipeline {
     tools {
         maven "MAVEN_HOME"
     }
-    environment {
-    IE_DRIVER_PATH = "C:\\Users\\mansigupta05\\Downloads\\IEDriverServer_x64_4.14.0 (1)\\IEDriverServer.exe"
-     }
 
     stages {
         stage('Setup WebDriver') {
             steps {
-                // Create 'drivers' directory if it doesn't exist
-                script {
-                    dir('drivers') {
-                        if (!fileExists('drivers')) {
-                            echo "Creating 'drivers' directory..."
-                            bat 'mkdir drivers'
-                        }
-                    }
-                }
-                
-                // Set up WebDriver executables directory in PATH
-                script {
-                    env.PATH += ";C:\\Users\\mansigupta05\\Downloads\\IEDriverServer_x64_4.14.0 (1)" // Add directory containing WebDriver executables to PATH
-                }
+                // Let WebDriverManager handle this
             }
         }
         stage('Build') {
@@ -34,14 +18,13 @@ pipeline {
         }
         stage('Test') {
             steps {
-                // Run tests
+                // Run tests with WebDriverManager handling WebDriver setup
                 bat 'mvn test surefire-report:report'
             }
         }
         stage('Deploy') {
             steps {
                 // Placeholder for deployment steps
-                // Replace this with your deployment script or commands
                 echo 'Deploying the application...'
             }
         }
