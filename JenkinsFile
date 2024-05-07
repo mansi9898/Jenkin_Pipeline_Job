@@ -5,11 +5,6 @@ pipeline {
     }
 
     stages {
-        stage('Setup WebDriver') {
-            steps {
-                // Let WebDriverManager handle this
-            }
-        }
         stage('Build') {
             steps {
                 // Clean and build the Maven project
@@ -25,6 +20,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 // Placeholder for deployment steps
+                // Replace this with your deployment script or commands
                 echo 'Deploying the application...'
             }
         }
