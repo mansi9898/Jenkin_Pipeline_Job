@@ -37,5 +37,10 @@ pipeline {
         failure {
             echo 'Pipeline failed!'
         }
+     always {
+            
+            // Publish TestNG reports
+            junit 'target/surefire-reports/*.xml'
+        }
     }
 }
