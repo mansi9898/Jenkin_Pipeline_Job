@@ -40,7 +40,8 @@ pipeline {
      always {
             
             // Publish TestNG reports
-            junit 'target/surefire-reports/*.xml'
+            junit 'test-output/*.xml'
+
         }
     }
 }
