@@ -40,7 +40,8 @@ pipeline {
      always {
             
             // Publish TestNG reports
-            junit 'test-output/*.xml'
+            junit 'test-output/**/*.xml'
+
 
         }
     }
